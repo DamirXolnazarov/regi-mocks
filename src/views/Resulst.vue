@@ -6,7 +6,7 @@ import Candidate from '../components/Candidate.vue'
 
 <template>
     <div class="results">
-        <Header :textHeader="'Mock exam(' + this.date + ')'" />
+        <Header :textHeader="'Mock exam (' + date + ')' " />
         <div class="content w-[100%] p-[15px]">
             <RouterLink to="/"><Arrow /></RouterLink>
             <div class="results_part py-[10px] w-[100%] h-[100%] flex flex-col justify-center items-center">
@@ -16,7 +16,7 @@ import Candidate from '../components/Candidate.vue'
                     <img class="w-[23px] absolute top-[25%] left-[25px]" src="../assets/searchIcon.png" alt="">
                 </div>
                 <div class="candidate_results w-[95%]">
-                        <Candidate v-for="i of this.results" :Candidate_name="i.Candidate_Name" :Candidate_id="i.Candidate_ID" :key="i.id"/>
+                        <Candidate v-for="i of results" :Candidate_name="i.Candidate_Name" :Candidate_id="i.Candidate_ID" :key="i.id"/>
                 </div>
             </div>
         </div>
@@ -44,7 +44,6 @@ export default {
                 let data = JSON.parse(rep.substr(47).slice(0, -2))
                 for (let i of data.table.rows) {
                     if (data.table.rows.indexOf(i) !== 0) {
-                        console.log(i);
                         this.results.push(
                             {
                                 Candidate_Name: i.c[1].v,

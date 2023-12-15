@@ -58,10 +58,10 @@ export default {
 
     this.animateLetters();
     setTimeout(() => {
-      this.loading = !this.loading
+      this.loading = true
     }, 4000);
     setTimeout(() => {
-    this.entered = !this.entered
+    this.entered = false
     }, 7000);
   },
 
