@@ -1,8 +1,10 @@
 <template>
-    <div class="candidate cursor-pointer text-[24px] px-[30px] my-[30px] flex flex-row justify-between items-center">
+    <div class="candidate relative cursor-pointer text-[24px] px-[30px] my-[30px] flex flex-row justify-between items-center">
        <span class="name">{{ Candidate_name }}</span>
        <span class="id">id: {{ Candidate_id }}</span>
-       <!-- <div class="overallScore"></div> -->
+       <div class="overallScore absolute w-[35px] h-[35px] right-[-10px] bottom-[-10px] rounded-[50%] bg-[#00FF1A] flex flex-row justify-center items-center">
+        <span class="text-[16px] text-white font-black">{{ overallScore }}</span>
+       </div>
     </div>
 </template>
 
@@ -26,6 +28,7 @@ export default {
     props:{
         Candidate_name: String,
         Candidate_id: Number,
+        overallScore: Number,
     }
 };
 </script>

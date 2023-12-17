@@ -1,7 +1,7 @@
 <template>
-    <div class="header flex px-[10px] flex-row justify-start items-center">
+    <div class="header border-2 flex px-[10px] flex-row justify-start items-center">
         <img class="w-[110px]" src="../assets/logo.png" alt="">
-        <span>{{ textHeader }}</span>
+        <span class="w-[100%]">{{ textHeader }}</span>
     </div>
 </template>
 

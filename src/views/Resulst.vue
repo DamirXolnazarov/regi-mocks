@@ -16,7 +16,7 @@ import Candidate from '../components/Candidate.vue'
                     <img class="w-[23px] absolute top-[25%] left-[25px]" src="../assets/searchIcon.png" alt="">
                 </div>
                 <div class="candidate_results w-[95%]">
-                        <Candidate v-for="i of results" :Candidate_name="i.Candidate_Name" :Candidate_id="i.Candidate_ID" :key="i.id"/>
+                        <RouterLink to="/candidate"><Candidate @click="candidatePage(i)" v-for="i of results" :Candidate_name="i.Candidate_Name" :Candidate_id="i.Candidate_ID" :overallScore="i.OverallScore" :key="i.id"/></RouterLink>
                 </div>
             </div>
         </div>
@@ -48,11 +48,7 @@ export default {
                             {
                                 Candidate_Name: i.c[1].v,
                                 Candidate_ID: i.c[2].v,
-                                listening: i.c[3].v,
-                                reading: i.c[4].v,
-                                speaking: i.c[5].v,
-                                writing1: i.c[6].v,
-                                writing2: i.c[7].v,
+                                OverallScore: i.c[14].v,
                             }
                         )
                     } else {
@@ -64,7 +60,9 @@ export default {
     },
 
     methods: {
-
+        candidatePage(result){
+            window.localStorage.candidate = JSON.stringify(result)
+        }
     },
 };
 </script>
