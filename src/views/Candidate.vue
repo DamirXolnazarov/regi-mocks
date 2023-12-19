@@ -25,9 +25,9 @@ import Arrow from '../components/Arrow.vue'
                 <div class="speaking"></div>
             </div>
             <div class="BandDescriptor py-[20px] px-[15px] flex flex-col items-center">
-                <span class="text-center title text-[32px] py-[15px] font-black text-[#00FF19]"> {{ this.bandDescriptions[this.overall].title }} </span>
+                <span class="text-center title text-[32px] py-[15px] font-black text-[#00FF19]"> {{ bandDescriptions[overall].title }} </span>
                 <span class="text-center description text-[20px] px-[15px]">
-                    {{ this.bandDescriptions[this.overall].description }}
+                    {{ bandDescriptions[overall].description }}
                 </span>
             </div>
         </div>
