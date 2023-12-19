@@ -36,7 +36,7 @@ export default {
     return {
       words: ['R', 'E', 'G', 'I', 'S', 'T', 'A', 'N', ' ', 'M', 'O', 'C', 'K', ' ', 'E', 'X', 'A', 'M', 'S'],
       loading: false,
-      entered: false,
+      entered: true,
       date: '',
       Sheet_ID: '1-ArEkK19KDY-GjhsO_V_NvQpHqos1V_DLdLOy4jgsYI',
       Sheet_TITLE: 'Registan_Mock',
