@@ -14,18 +14,43 @@ import Arrow from '../components/Arrow.vue'
             <RouterLink to="/results" class="absolute left-[15px] top-[15px]">
                 <Arrow />
             </RouterLink>
-            <div class="overall mb-[30px] flex flex-col justify-center items-center">
+            <div @click="overa" class="overall mb-[30px] flex flex-col justify-center items-center">
                 <span class="font-black text-[40px]">OVERALL</span>
                 <span class="font-black text-[40px] text-[#FF4508]">{{ CandidateResult.OverallScore }}</span>
             </div>
-            <div class="fourSkills w-[95%] flex flex-row justify-between h-[100px]">
-                <div class="listening"></div>
-                <div class="reading"></div>
-                <div class="writing"></div>
-                <div class="speaking"></div>
+            <div class="fourSkills relative w-[95%] flex flex-row justify-between h-[100px]">
+                <div @click="Listening" class="flex flex-row justify-center items-center cursor-pointer listening">
+                    <div class="listening" :class="{ 'ListeningActive': listening }"></div>
+                    <div class="listeningScore w-[100%] h-[100%] absolute">
+                        <span class="text-[35px] font-black">{{ CandidateResult.ListeningBandScore }}</span>
+                    </div>
+                </div>
+                <div @click="Reading" class="flex flex-row justify-center items-center cursor-pointer reading"
+                    :class="{ 'ReadingActive': reading }">
+                    <div class="reading" :class="{ 'ReadingActive': reading }"></div>
+                    <div class="readingScore w-[100%] h-[100%] absolute">
+                        <span class="text-[35px] font-black">{{ CandidateResult.ReadingBandScore }}</span>
+                    </div>
+                </div>
+                <div @click="Writing" class="flex flex-row justify-center items-center cursor-pointer writing"
+                    :class="{ 'WritingActive': writing }">
+                    <div class="writing" :class="{ 'WritingActive': writing }"></div>
+                    <div class="writingScore w-[100%] h-[100%] absolute">
+                        <span class="text-[35px] font-black">{{ CandidateResult.SpeakingBandScore }}</span>
+                    </div>
+                </div>
+                <div @click="Speaking" class="flex flex-row justify-center items-center cursor-pointer speaking"
+                    :class="{ 'SpeakingActive': speaking }">
+                    <div class="speaking" :class="{ 'SpeakingActive': speaking }"></div>
+                    <div class="SpeakingScore w-[100%] h-[100%] absolute">
+                        <span class="text-[35px] font-black">{{ CandidateResult.WritingOverallBandScore }}</span>
+                    </div>
+                </div>
             </div>
             <div class="BandDescriptor py-[20px] px-[15px] flex flex-col items-center">
-                <span class="text-center title text-[32px] py-[15px] font-black text-[#00FF19]"> {{ bandDescriptions[overall].title }} </span>
+                <span class="flex flex-col text-center title text-[32px] py-[15px] font-black text-[#00FF19]">
+                    {{ bandDescriptions[overall].title }}
+                </span>
                 <span class="text-center description text-[20px] px-[15px]">
                     {{ bandDescriptions[overall].description }}
                 </span>
@@ -44,6 +69,10 @@ export default {
             Sheet_ID: '1-ArEkK19KDY-GjhsO_V_NvQpHqos1V_DLdLOy4jgsYI',
             Sheet_TITLE: 'Registan_Mock',
             overall: 0,
+            listening: false,
+            reading: false,
+            writing: false,
+            speaking: false,
             CandidateResult: {},
             bandDescriptions: [
                 {
@@ -133,8 +162,67 @@ export default {
     },
 
     methods: {
-
+        overa() {
+            document.querySelector('.BandDescriptor').firstChild.innerHTML = this.bandDescriptions[this.overall].title 
+            document.querySelector('.BandDescriptor').lastChild.innerHTML = this.bandDescriptions[this.overall].description 
+            this.listening = false
+            this.reading = false
+            this.speaking = false
+            this.writing = false
+            document.querySelector('.listeningScore').classList = 'listeningScore'
+            document.querySelector('.readingScore').classList = 'readingScore'
+            document.querySelector('.writingScore').classList = 'writingScore'
+            document.querySelector('.SpeakingScore').classList = 'SpeakingScore'
+        },
+        Listening() {
+            this.listening = !this.listening
+            this.reading = false
+            this.speaking = false
+            this.writing = false
+            document.querySelector('.listeningScore').classList.toggle('skillActive')
+            document.querySelector('.readingScore').classList = 'readingScore'
+            document.querySelector('.writingScore').classList = 'writingScore'
+            document.querySelector('.SpeakingScore').classList = 'SpeakingScore'
+            document.querySelector('.BandDescriptor').firstChild.innerHTML = this.bandDescriptions[Math.ceil(this.CandidateResult.ListeningBandScore)].title + "(" + this.CandidateResult.ListeningRaw + ')'
+            document.querySelector('.BandDescriptor').lastChild.innerHTML = this.bandDescriptions[Math.ceil(this.CandidateResult.ListeningBandScore)].description
+        },
+        Reading() {
+            this.reading = !this.reading
+            this.listening = false
+            this.speaking = false
+            this.writing = false
+            document.querySelector('.readingScore').classList.toggle('skillActive')
+            document.querySelector('.listeningScore').classList = 'listeningScore'
+            document.querySelector('.writingScore').classList = 'writingScore'
+            document.querySelector('.SpeakingScore').classList = 'SpeakingScore'
+            document.querySelector('.BandDescriptor').firstChild.innerHTML = this.bandDescriptions[Math.ceil(this.CandidateResult.ReadingBandScore)].title + "(" + this.CandidateResult.ReadingRaw + ')'
+            document.querySelector('.BandDescriptor').lastChild.innerHTML = this.bandDescriptions[Math.ceil(this.CandidateResult.ReadingBandScore)].description
+        },
+        Speaking() {
+            this.speaking = !this.speaking
+            this.reading = false
+            this.listening = false
+            this.writing = false
+            document.querySelector('.SpeakingScore').classList.toggle('skillActive')
+            document.querySelector('.listeningScore').classList = 'listeningScore'
+            document.querySelector('.writingScore').classList = 'writingScore'
+            document.querySelector('.readingScore').classList = 'readingScore'
+            document.querySelector('.BandDescriptor').firstChild.innerHTML = this.bandDescriptions[Math.ceil(this.CandidateResult.SpeakingBandScore)].title + '\n' + "(" + this.CandidateResult.SpeakingRaw + ')'
+            document.querySelector('.BandDescriptor').lastChild.innerHTML = this.bandDescriptions[Math.ceil(this.CandidateResult.SpeakingBandScore)].description 
+        },
+        Writing() {
+            this.writing = !this.writing
+            this.reading = false
+            this.speaking = false
+            this.listening = false
+            document.querySelector('.writingScore').classList.toggle('skillActive')
+            document.querySelector('.readingScore').classList = 'readingScore'
+            document.querySelector('.listeningScore').classList = 'listeningScore'
+            document.querySelector('.SpeakingScore').classList = 'SpeakingScore'
+            document.querySelector('.BandDescriptor').firstChild.innerHTML = this.bandDescriptions[Math.ceil(this.CandidateResult.WritingOverallBandScore)].title + '\n' + this.CandidateResult.WritingTask1BandScore +'/' + this.CandidateResult.WritingTask2BandScore
+            document.querySelector('.BandDescriptor').lastChild.innerHTML = 'Task 1 - (' + this.CandidateResult.WritingTask1Raw + ')' + " " +'Task 2 - (' + this.CandidateResult.WritingTask2Raw + ')' + " " + this.bandDescriptions[Math.ceil(this.CandidateResult.WritingOverallBandScore)].description
     },
+}
 };
 </script>
 
@@ -164,20 +252,42 @@ export default {
     width: 80px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     height: 80px;
+    transition: 0.3s;
     background-size: contain;
     background-position: center center;
     border-radius: 16px;
     background-image: url('../assets/listening icon1.png');
 }
 
+.ListeningActive {
+    width: 80px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    height: 80px;
+    background-size: contain;
+    background-position: center center;
+    border-radius: 16px;
+    background-image: url('../assets/listening icon.png');
+}
+
 .reading {
+    width: 80px;
+    height: 80px;
+    background-position: center center;
+    transition: 0.3s;
+    background-size: contain;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 16px;
+    background-image: url('../assets/reading icon1.png');
+}
+
+.ReadingActive {
     width: 80px;
     height: 80px;
     background-position: center center;
     background-size: contain;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     border-radius: 16px;
-    background-image: url('../assets/reading icon1.png');
+    background-image: url('../assets/reading icon.png');
 }
 
 .speaking {
@@ -187,17 +297,39 @@ export default {
     background-size: contain;
     background-position: center center;
     border-radius: 16px;
+    transition: 0.3s;
     background-image: url('../assets/speaking icon1.png');
+}
+
+.SpeakingActive {
+    width: 80px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    height: 80px;
+    background-size: contain;
+    background-position: center center;
+    border-radius: 16px;
+    background-image: url('../assets/speaking icon.png');
 }
 
 .writing {
     width: 80px;
     height: 80px;
     background-size: contain;
+    transition: 0.3s;
     border-radius: 16px;
     background-position: center center;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     background-image: url('../assets/writing icon1.png');
+}
+
+.WritingActive {
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    border-radius: 16px;
+    background-position: center center;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    background-image: url('../assets/writing icon.png');
 }
 
 .BandDescriptor {
@@ -205,6 +337,79 @@ export default {
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 35px;
+}
+
+.listeningScore {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    transition: .3s;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+}
+
+.readingScore {
+    width: 80px;
+    height: 80px;
+    z-index: -1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    transition: .3s;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+}
+
+.writingScore {
+    width: 80px;
+    z-index: -1;
+    transition: .3s;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    height: 80px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+}
+
+.SpeakingScore {
+    width: 80px;
+    height: 80px;
+    z-index: -1;
+    position: absolute;
+    transition: .3s;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    left: 0px;
+    z-index: -111;
+    top: 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+}
+
+.skillActive {
+    top: 50px;
 }
 
 .overallScore {
