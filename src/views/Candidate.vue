@@ -220,7 +220,7 @@ export default {
             document.querySelector('.listeningScore').classList = 'listeningScore'
             document.querySelector('.SpeakingScore').classList = 'SpeakingScore'
             document.querySelector('.BandDescriptor').firstChild.innerHTML = this.bandDescriptions[Math.ceil(this.CandidateResult.WritingOverallBandScore)].title + '\n' + this.CandidateResult.WritingTask1BandScore +'/' + this.CandidateResult.WritingTask2BandScore
-            document.querySelector('.BandDescriptor').lastChild.innerHTML = 'Task 1 - (' + this.CandidateResult.WritingTask1Raw + ')' + " " +'Task 2 - (' + this.CandidateResult.WritingTask2Raw + ')' + " " + this.bandDescriptions[Math.ceil(this.CandidateResult.WritingOverallBandScore)].description
+            document.querySelector('.BandDescriptor').lastChild.innerHTML = `Task 1 - ( ${this.CandidateResult.WritingTask1Raw} ) <br> Task 2 - ( ${this.CandidateResult.WritingTask2Raw} ) <br> ${this.bandDescriptions[Math.ceil(this.CandidateResult.WritingOverallBandScore)].description}`
     },
 }
 };

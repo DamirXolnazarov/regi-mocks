@@ -6,17 +6,23 @@ import Candidate from '../components/Candidate.vue'
 
 <template>
     <div class="results">
-        <Header :textHeader="'Mock exam (' + date + ')' " />
+        <Header :textHeader="'Mock exam (' + date + ')'" />
         <div class="content w-[100%] p-[15px]">
-            <RouterLink to="/"><Arrow /></RouterLink>
+            <RouterLink to="/">
+                <Arrow />
+            </RouterLink>
             <div class="results_part py-[10px] w-[100%] h-[100%] flex flex-col justify-center items-center">
                 <div class="searchBar w-[95%] flex flex-row justify-center items-center relative">
-                    <input class="search w-[95%] relative pl-[50px] h-[47px] rounded-[42px] bg-[#F5F5F5]"
+                    <input v-model="search" @input="filterData"
+                        class="search w-[95%] relative pl-[50px] h-[47px] rounded-[42px] bg-[#F5F5F5]"
                         placeholder="Search...">
                     <img class="w-[23px] absolute top-[25%] left-[25px]" src="../assets/searchIcon.png" alt="">
                 </div>
                 <div class="candidate_results w-[95%]">
-                        <RouterLink to="/candidate"><Candidate @click="candidatePage(i)" v-for="i of results" :Candidate_name="i.Candidate_Name" :Candidate_id="i.Candidate_ID" :overallScore="i.OverallScore" :key="i.id"/></RouterLink>
+                    <RouterLink to="/candidate">
+                        <Candidate @click="candidatePage(i)" v-for="i of Datas" :Candidate_name="i.Candidate_Name"
+                            :Candidate_id="i.Candidate_ID" :overallScore="i.OverallScore" :key="i.id" />
+                    </RouterLink>
                 </div>
             </div>
         </div>
@@ -33,6 +39,9 @@ export default {
             Sheet_TITLE: 'Registan_Mock',
             date: '',
             results: [],
+            search: '',
+            Datas: [],
+
         };
     },
 
@@ -51,6 +60,7 @@ export default {
                                 OverallScore: i.c[14].v,
                             }
                         )
+                        this.Datas = this.results
                     } else {
                         this.date = i.c[0].f
                     }
@@ -60,9 +70,13 @@ export default {
     },
 
     methods: {
-        candidatePage(result){
+        candidatePage(result) {
             window.localStorage.candidate = JSON.stringify(result)
-        }
+        },
+        filterData() {
+            const searchLower = this.search.toLowerCase();
+            this.Datas = this.results.filter(item => item.Candidate_Name.toLowerCase().includes(searchLower));
+        },
     },
 };
 </script>
