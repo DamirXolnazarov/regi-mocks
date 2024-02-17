@@ -12,6 +12,10 @@
             <img src="../assets/mock.png" class="mr-[15px]" alt="">
             <span class="text-[18px] font-semibold">Mock exam({{ this.date }})</span>
         </div></RouterLink>
+        <RouterLink class="w-[100%] flex flex-row justify-center" to="/results1"><div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
+            <img src="../assets/mock.png" class="mr-[15px]" alt="">
+            <span class="text-[18px] font-semibold">Mock exam({{ this.date1 }})</span>
+        </div></RouterLink>
       </div>
     </div>
     <div class="animationWin" v-if="entered">
@@ -38,7 +42,10 @@ export default {
       loading: false,
       entered: true,
       date: '',
+      date1: '',
       Sheet_ID: '1-ArEkK19KDY-GjhsO_V_NvQpHqos1V_DLdLOy4jgsYI',
+      Sheet_ID1: '1X_bEBAXCTCHcDmLEbOd-rlbTi24rKvJqhaKQny2Todo',
+      Sheet_TITLE1: 'Reg1',
       Sheet_TITLE: 'Registan_Mock',
     };
   },
@@ -52,6 +59,17 @@ export default {
         for (let i of data.table.rows) {
           if (data.table.rows.indexOf(i) == 0) {
             this.date = i.c[0].f
+          }
+        }
+      })
+    this.Full_URL1 = 'https://docs.google.com/spreadsheets/d/' + this.Sheet_ID1 + '/gviz/tq?sheet=' + this.Sheet_TITLE1
+    fetch(this.Full_URL1)
+      .then(res => res.text())
+      .then(rep => {
+        let data = JSON.parse(rep.substr(47).slice(0, -2))
+        for (let i of data.table.rows) {
+          if (data.table.rows.indexOf(i) == 0) {
+            this.date1 = i.c[0].f
           }
         }
       })
