@@ -7,8 +7,8 @@
       <div class="top w-[100%] flex flex-row justify-center items-center h-[116px] bg-[#FF4508]">
         <img class="w-[110px]" src="../assets/logo.png" alt="">
       </div>
-      <div class="content pt-[25px] flex flex-row justify-center">
-        <RouterLink class="w-[100%] flex flex-row justify-center" to="/results"><div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
+      <div class="content pt-[25px] flex flex-col items-center">
+        <RouterLink class="w-[100%] flex flex-row my-[30px] justify-center" to="/results"><div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
             <img src="../assets/mock.png" class="mr-[15px]" alt="">
             <span class="text-[18px] font-semibold">Mock exam({{ this.date }})</span>
         </div></RouterLink>
