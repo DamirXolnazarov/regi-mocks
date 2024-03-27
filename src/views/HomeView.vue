@@ -87,7 +87,7 @@ export default {
         let data = JSON.parse(rep.substr(47).slice(0, -2))
         for (let i of data.table.rows) {
           if (data.table.rows.indexOf(i) == 0) {
-            this.date1 = i.c[0].f
+            this.date2 = i.c[0].f
           }
         }
       })
