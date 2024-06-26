@@ -19,7 +19,7 @@ import Candidate from '../components/Candidate.vue'
                     <img class="w-[23px] absolute top-[25%] left-[25px]" src="../assets/searchIcon.png" alt="">
                 </div>
                 <div class="candidate_results w-[95%]">
-                    <RouterLink to="/candidate1">
+                    <RouterLink to="/candidate3">
                         <Candidate @click="candidatePage(i)" v-for="i of Datas" :Candidate_name="i.Candidate_Name"
                             :Candidate_id="i.Candidate_ID" :overallScore="i.OverallScore" :key="i.id" />
                     </RouterLink>
@@ -75,16 +75,16 @@ export default {
         },
         filterData() {
             const searchLower = this.search.toLowerCase();
-            if(parseInt(this.search) == 0 || parseInt(this.search) == 1 || parseInt(this.search) == 2 || parseInt(this.search) == 3 ||parseInt(this.search) == 4 || parseInt(this.search) == 5 || parseInt(this.search) == 6 || parseInt(this.search) == 7|| parseInt(this.search) == 8 ){
-                this.Datas = this.results.filter(item => item.Candidate_ID.splice(0,1) == this.search)
-                for(let i of this.results){
-                    if(i.Candidate_ID.split('').splice(0, this.search.length).join('') == this.search){
+            if (parseInt(this.search) == 0 || parseInt(this.search) == 1 || parseInt(this.search) == 2 || parseInt(this.search) == 3 || parseInt(this.search) == 4 || parseInt(this.search) == 5 || parseInt(this.search) == 6 || parseInt(this.search) == 7 || parseInt(this.search) == 8) {
+                this.Datas = this.results.filter(item => item.Candidate_ID.splice(0, 1) == this.search)
+                for (let i of this.results) {
+                    if (i.Candidate_ID.split('').splice(0, this.search.length).join('') == this.search) {
                         console.log(i.Candidate_Name);
                     }
                 }
 
             }
-            else{
+            else {
                 this.Datas = this.results.filter(item => item.Candidate_Name.toLowerCase().includes(searchLower));
             }
         },

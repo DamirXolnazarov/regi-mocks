@@ -11,7 +11,7 @@ import Arrow from '../components/Arrow.vue'
             <span class="text-[24px] text-white font-black">{{ CandidateResult.OverallScore }}</span>
         </div>
         <div class="content relative flex flex-col justify-center items-center w-[100%] p-[15px] pt-[45px]">
-            <RouterLink to="/results" class="absolute left-[15px] top-[15px]">
+            <RouterLink to="/results3" class="absolute left-[15px] top-[15px]">
                 <Arrow />
             </RouterLink>
             <div @click="overa" class="overall mb-[30px] flex flex-col justify-center items-center">
@@ -163,8 +163,8 @@ export default {
 
     methods: {
         overa() {
-            document.querySelector('.BandDescriptor').firstChild.innerHTML = this.bandDescriptions[this.overall].title 
-            document.querySelector('.BandDescriptor').lastChild.innerHTML = this.bandDescriptions[this.overall].description 
+            document.querySelector('.BandDescriptor').firstChild.innerHTML = this.bandDescriptions[this.overall].title
+            document.querySelector('.BandDescriptor').lastChild.innerHTML = this.bandDescriptions[this.overall].description
             this.listening = false
             this.reading = false
             this.speaking = false
@@ -208,7 +208,7 @@ export default {
             document.querySelector('.writingScore').classList = 'writingScore'
             document.querySelector('.readingScore').classList = 'readingScore'
             document.querySelector('.BandDescriptor').firstChild.innerHTML = this.bandDescriptions[Math.ceil(this.CandidateResult.SpeakingBandScore)].title + '\n' + "(" + this.CandidateResult.SpeakingRaw + ')'
-            document.querySelector('.BandDescriptor').lastChild.innerHTML = this.bandDescriptions[Math.ceil(this.CandidateResult.SpeakingBandScore)].description 
+            document.querySelector('.BandDescriptor').lastChild.innerHTML = this.bandDescriptions[Math.ceil(this.CandidateResult.SpeakingBandScore)].description
         },
         Writing() {
             this.writing = !this.writing
@@ -219,10 +219,10 @@ export default {
             document.querySelector('.readingScore').classList = 'readingScore'
             document.querySelector('.listeningScore').classList = 'listeningScore'
             document.querySelector('.SpeakingScore').classList = 'SpeakingScore'
-            document.querySelector('.BandDescriptor').firstChild.innerHTML = this.bandDescriptions[Math.ceil(this.CandidateResult.WritingOverallBandScore)].title + '\n' + this.CandidateResult.WritingTask1BandScore +'/' + this.CandidateResult.WritingTask2BandScore
+            document.querySelector('.BandDescriptor').firstChild.innerHTML = this.bandDescriptions[Math.ceil(this.CandidateResult.WritingOverallBandScore)].title + '\n' + this.CandidateResult.WritingTask1BandScore + '/' + this.CandidateResult.WritingTask2BandScore
             document.querySelector('.BandDescriptor').lastChild.innerHTML = `Task 1 - ( ${this.CandidateResult.WritingTask1Raw} ) <br> Task 2 - ( ${this.CandidateResult.WritingTask2Raw} ) <br> ${this.bandDescriptions[Math.ceil(this.CandidateResult.WritingOverallBandScore)].description}`
-    },
-}
+        },
+    }
 };
 </script>
 

@@ -11,7 +11,7 @@ import Arrow from '../components/Arrow.vue'
             <span class="text-[24px] text-white font-black">{{ CandidateResult.OverallScore }}</span>
         </div>
         <div class="content relative flex flex-col justify-center items-center w-[100%] p-[15px] pt-[45px]">
-            <RouterLink to="/results" class="absolute left-[15px] top-[15px]">
+            <RouterLink to="/results1" class="absolute left-[15px] top-[15px]">
                 <Arrow />
             </RouterLink>
             <div @click="overa" class="overall mb-[30px] flex flex-col justify-center items-center">
