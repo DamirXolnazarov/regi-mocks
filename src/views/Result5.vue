@@ -57,7 +57,7 @@ export default {
                             {
                                 Candidate_Name: i.c[1].v,
                                 Candidate_ID: i.c[2].v,
-                                OverallScore: i.c[12].v,
+                                OverallScore: i.c[14].v,
                             }
                         )
                         this.Datas = this.results
