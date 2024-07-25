@@ -36,14 +36,14 @@ import Arrow from '../components/Arrow.vue'
                     :class="{ 'WritingActive': writing }">
                     <div class="writing" :class="{ 'WritingActive': writing }"></div>
                     <div class="writingScore w-[100%] h-[100%] absolute">
-                        <span class="text-[35px] font-black">{{ CandidateResult.SpeakingBandScore }}</span>
+                        <span class="text-[35px] font-black">{{ CandidateResult.WritingOverallBandScore }}</span>
                     </div>
                 </div>
                 <div @click="Speaking" class="flex flex-row justify-center items-center cursor-pointer speaking"
                     :class="{ 'SpeakingActive': speaking }">
                     <div class="speaking" :class="{ 'SpeakingActive': speaking }"></div>
                     <div class="SpeakingScore w-[100%] h-[100%] absolute">
-                        <span class="text-[35px] font-black">{{ CandidateResult.WritingOverallBandScore }}</span>
+                        <span class="text-[35px] font-black">{{ CandidateResult.SpeakingBandScore }}</span>
                     </div>
                 </div>
             </div>
