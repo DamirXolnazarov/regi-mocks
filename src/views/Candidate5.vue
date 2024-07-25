@@ -140,6 +140,8 @@ export default {
                             ListeningBandScore: i.c[8].v,
                             ReadingBandScore: i.c[9].v,
                             SpeakingBandScore: i.c[13].v,
+                            WritingTask1BandScore: i.c[11].v,
+                            WritingTask2BandScore: i.c[12].v,
                             WritingOverallBandScore: i.c[10].v,
                             OverallScore: i.c[14].v,
                         }
