@@ -32,6 +32,10 @@
             <img src="../assets/mock.png" class="mr-[15px]" alt="">
             <span class="text-[18px] font-semibold">Mock exam({{ this.date5 }})</span>
         </div></RouterLink>
+        <RouterLink class="w-[100%] flex flex-row mt-[30px] justify-center" to="/result6"><div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
+            <img src="../assets/mock.png" class="mr-[15px]" alt="">
+            <span class="text-[18px] font-semibold">Mock exam({{ this.date6 }})</span>
+        </div></RouterLink>
       </div>
     </div>
     <div class="animationWin" v-if="entered">
@@ -63,17 +67,20 @@ export default {
       date3: '',
       date4: '',
       date5: '',
+      date6: '',
       Sheet_ID: '1-ArEkK19KDY-GjhsO_V_NvQpHqos1V_DLdLOy4jgsYI',
       Sheet_ID1: '1X_bEBAXCTCHcDmLEbOd-rlbTi24rKvJqhaKQny2Todo',
       Sheet_ID2: '1NKibU79ABmOlduiO3rHh2HVowNuXZEUtzmE7zR1u6hA',
       Sheet_ID3: '14wmmkC61KgiSiHN04MpZEupxvOWRm4AULTyuUT4CZHY',
       Sheet_ID4: '1GL5VEgOoDcbxjThxTLpym5SR8uvft5ptmwgY-zsEm4Q',
       Sheet_ID5: '1ZNTMr30x5Us6YA1XON3cSlJNmKE6ndN7WYqTEmlrtnQ',
+      Sheet_ID6: '1yHLYm51c3RrCi9Wi1Az6CsF0Dz2eLk5gNI73mx8hh2g',
       Sheet_TITLE2: 'Reg2',
       Sheet_TITLE3: 'Reg3',
       Sheet_TITLE4: 'Reg4',
       Sheet_TITLE5: 'Reg5',
       Sheet_TITLE1: 'Reg1',
+      Sheet_TITLE6: 'Reg6',
       Sheet_TITLE: 'Registan_Mock',
     };
   },
@@ -142,6 +149,17 @@ export default {
         for (let i of data.table.rows) {
           if (data.table.rows.indexOf(i) == 0) {
             this.date5 = i.c[0].f
+          }
+        }
+      })
+    this.Full_URL6 = 'https://docs.google.com/spreadsheets/d/' + this.Sheet_ID6 + '/gviz/tq?sheet=' + this.Sheet_TITLE6
+    fetch(this.Full_URL5)
+      .then(res => res.text())
+      .then(rep => {
+        let data = JSON.parse(rep.substr(47).slice(0, -2))
+        for (let i of data.table.rows) {
+          if (data.table.rows.indexOf(i) == 0) {
+            this.date6 = i.c[0].f
           }
         }
       })
