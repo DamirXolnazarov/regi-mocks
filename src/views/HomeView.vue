@@ -32,7 +32,7 @@
             <img src="../assets/mock.png" class="mr-[15px]" alt="">
             <span class="text-[18px] font-semibold">Mock exam({{ this.date5 }})</span>
         </div></RouterLink>
-        <RouterLink class="w-[100%] flex flex-row mt-[30px] justify-center" to="/result6"><div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
+        <RouterLink class="w-[100%] flex flex-row mt-[30px] mb-[130px] justify-center" to="/result6"><div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
             <img src="../assets/mock.png" class="mr-[15px]" alt="">
             <span class="text-[18px] font-semibold">Mock exam({{ this.date6 }})</span>
         </div></RouterLink>
