@@ -67,7 +67,7 @@ export default {
       date3: '',
       date4: '',
       date5: '',
-      date6: '',
+      date6: '25.08.2024',
       Sheet_ID: '1-ArEkK19KDY-GjhsO_V_NvQpHqos1V_DLdLOy4jgsYI',
       Sheet_ID1: '1X_bEBAXCTCHcDmLEbOd-rlbTi24rKvJqhaKQny2Todo',
       Sheet_ID2: '1NKibU79ABmOlduiO3rHh2HVowNuXZEUtzmE7zR1u6hA',
@@ -157,11 +157,6 @@ export default {
       .then(res => res.text())
       .then(rep => {
         let data = JSON.parse(rep.substr(47).slice(0, -2))
-        for (let i of data.table.rows) {
-          if (data.table.rows.indexOf(i) == 0) {
-            this.date6 = i.c[0].f
-          }
-        }
       })
 
     this.animateLetters();
