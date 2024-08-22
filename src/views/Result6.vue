@@ -19,7 +19,7 @@ import Candidate from '../components/Candidate.vue'
                     <img class="w-[23px] absolute top-[25%] left-[25px]" src="../assets/searchIcon.png" alt="">
                 </div>
                 <div class="candidate_results w-[95%]">
-                    <RouterLink to="/candidate5">
+                    <RouterLink to="/candidate6">
                         <Candidate @click="candidatePage(i)" v-for="i of Datas" :Candidate_name="i.Candidate_Name"
                             :Candidate_id="i.Candidate_ID" :overallScore="i.OverallScore" :key="i.id" />
                     </RouterLink>
