@@ -139,11 +139,11 @@ export default {
                             WritingTask2Raw: i.c[7].v,
                             ListeningBandScore: i.c[8].v,
                             ReadingBandScore: i.c[9].v,
-                            SpeakingBandScore: i.c[13].v,
-                            WritingTask1BandScore: i.c[11].v,
-                            WritingTask2BandScore: i.c[12].v,
+                            SpeakingBandScore: i.c[11].v,
+                            WritingTask1BandScore: i.c[13].v,
+                            WritingTask2BandScore: i.c[14].v,
                             WritingOverallBandScore: i.c[10].v,
-                            OverallScore: i.c[14].v,
+                            OverallScore: i.c[12].v,
                         }
                         this.overall = Math.ceil(this.CandidateResult.OverallScore)
                         if (this.CandidateResult.Candidate_Name.split('').length < 10) {
