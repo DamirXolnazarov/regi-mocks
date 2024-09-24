@@ -36,14 +36,14 @@ import Arrow from '../components/Arrow.vue'
                     :class="{ 'WritingActive': writing }">
                     <div class="writing" :class="{ 'WritingActive': writing }"></div>
                     <div class="writingScore w-[100%] h-[100%] absolute">
-                        <span class="text-[35px] font-black">{{ CandidateResult.WritingOverallBandScore }}</span>
+                        <span class="text-[35px] font-black">{{ CandidateResult.SpeakingBandScore }}</span>
                     </div>
                 </div>
                 <div @click="Speaking" class="flex flex-row justify-center items-center cursor-pointer speaking"
                     :class="{ 'SpeakingActive': speaking }">
                     <div class="speaking" :class="{ 'SpeakingActive': speaking }"></div>
                     <div class="SpeakingScore w-[100%] h-[100%] absolute">
-                        <span class="text-[35px] font-black">{{ CandidateResult.SpeakingBandScore }}</span>
+                        <span class="text-[35px] font-black">{{ CandidateResult.WritingOverallBandScore }}</span>
                     </div>
                 </div>
             </div>
@@ -135,13 +135,15 @@ export default {
                             ListeningRaw: i.c[3].v,
                             ReadingRaw: i.c[4].v,
                             SpeakingRaw: i.c[5].v,
+                            WritingTask1Raw: i.c[6].v,
+                            WritingTask2Raw: i.c[7].v,
                             ListeningBandScore: i.c[8].v,
                             ReadingBandScore: i.c[9].v,
-                            SpeakingBandScore: i.c[11].v,
-                            WritingTask1BandScore: i.c[6].v,
-                            WritingTask2BandScore: i.c[7].v,
-                            WritingOverallBandScore: i.c[10].v,
-                            OverallScore: i.c[12].v,
+                            SpeakingBandScore: i.c[10].v,
+                            WritingTask1BandScore: i.c[11].v,
+                            WritingTask2BandScore: i.c[12].v,
+                            WritingOverallBandScore: i.c[13].v,
+                            OverallScore: i.c[14].v,
                         }
                         this.overall = Math.ceil(this.CandidateResult.OverallScore)
                         if (this.CandidateResult.Candidate_Name.split('').length < 10) {
@@ -218,6 +220,7 @@ export default {
             document.querySelector('.listeningScore').classList = 'listeningScore'
             document.querySelector('.SpeakingScore').classList = 'SpeakingScore'
             document.querySelector('.BandDescriptor').firstChild.innerHTML = this.bandDescriptions[Math.ceil(this.CandidateResult.WritingOverallBandScore)].title + '\n' + this.CandidateResult.WritingTask1BandScore + '/' + this.CandidateResult.WritingTask2BandScore
+            document.querySelector('.BandDescriptor').lastChild.innerHTML = `Task 1 - ( ${this.CandidateResult.WritingTask1Raw} ) <br> Task 2 - ( ${this.CandidateResult.WritingTask2Raw} ) <br> ${this.bandDescriptions[Math.ceil(this.CandidateResult.WritingOverallBandScore)].description}`
         },
     }
 };
