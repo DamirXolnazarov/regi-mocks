@@ -32,7 +32,7 @@
             <img src="../assets/mock.png" class="mr-[15px]" alt="">
             <span class="text-[18px] font-semibold">Mock exam({{ this.date5 }})</span>
         </div></RouterLink>
-        <RouterLink class="w-[100%] flex flex-row mt-[30px] mb-[130px] justify-center" to="/result6"><div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
+        <RouterLink class="w-[100%] flex flex-row mt-[30px] justify-center" to="/result6"><div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
             <img src="../assets/mock.png" class="mr-[15px]" alt="">
             <span class="text-[18px] font-semibold">Mock exam({{ this.date6 }})</span>
         </div></RouterLink>
@@ -71,7 +71,7 @@ export default {
       date3: '',
       date4: '',
       date5: '',
-      date7: '',
+      date7: '22.09.2024',
       date6: '25.08.2024',
       Sheet_ID: '1-ArEkK19KDY-GjhsO_V_NvQpHqos1V_DLdLOy4jgsYI',
       Sheet_ID1: '1X_bEBAXCTCHcDmLEbOd-rlbTi24rKvJqhaKQny2Todo',
@@ -170,11 +170,6 @@ export default {
       .then(res => res.text())
       .then(rep => {
         let data = JSON.parse(rep.substr(47).slice(0, -2))
-        for (let i of data.table.rows) {
-          if (data.table.rows.indexOf(i) == 0) {
-            this.date7 = i.c[0].f
-          }
-        }
       })
     this.animateLetters();
     setTimeout(() => {

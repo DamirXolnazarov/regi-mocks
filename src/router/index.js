@@ -45,6 +45,11 @@ const router = createRouter({
       component: () => import('../views/Result6.vue')
     },
     {
+      path: '/result7',
+      name: 'result7',
+      component: () => import('../views/Result7.vue')
+    },
+    {
       path: '/candidate',
       name: 'candidate',
       component: () => import('../views/Candidate.vue')
@@ -78,6 +83,11 @@ const router = createRouter({
       path: '/candidate6',
       name: 'candidate6',
       component: () => import('../views/Candidate6.vue')
+    },
+    {
+      path: '/candidate7',
+      name: 'candidate7',
+      component: () => import('../views/Candidate7.vue')
     },
   ]
 })

@@ -217,7 +217,7 @@ export default {
             document.querySelector('.readingScore').classList = 'readingScore'
             document.querySelector('.listeningScore').classList = 'listeningScore'
             document.querySelector('.SpeakingScore').classList = 'SpeakingScore'
-            document.querySelector('.BandDescriptor').firstChild.innerHTML = this.bandDescriptions[Math.ceil(this.CandidateResult.WritingOverallBandScore)].title + '\n' + this.CandidateResult.WritingTask1BandScore + '/' + this.CandidateResult.WritingTask2BandScore
+            document.querySelector('.BandDescriptor').firstChild.innerHTML = this.bandDescriptions[Math.ceil(this.CandidateResult.WritingOverallBandScore)].title + '\n' + this.CandidateResult.WritingTask1Score + '/' + this.CandidateResult.WritingTask2Score
         },
     }
 };
