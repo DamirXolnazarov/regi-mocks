@@ -40,6 +40,10 @@
             <img src="../assets/mock.png" class="mr-[15px]" alt="">
             <span class="text-[18px] font-semibold">Mock exam({{ this.date7 }})</span>
         </div></RouterLink>
+        <RouterLink class="w-[100%] flex flex-row mt-[30px] mb-[130px] justify-center" to="/result8"><div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
+            <img src="../assets/mock.png" class="mr-[15px]" alt="">
+            <span class="text-[18px] font-semibold">Mock exam({{ this.date8 }})</span>
+        </div></RouterLink>
       </div>
     </div>
     <div class="animationWin" v-if="entered">
@@ -72,6 +76,7 @@ export default {
       date4: '',
       date5: '',
       date7: '22.09.2024',
+      date8: '27.10.2024',
       date6: '25.08.2024',
       Sheet_ID: '1-ArEkK19KDY-GjhsO_V_NvQpHqos1V_DLdLOy4jgsYI',
       Sheet_ID1: '1X_bEBAXCTCHcDmLEbOd-rlbTi24rKvJqhaKQny2Todo',
@@ -81,6 +86,7 @@ export default {
       Sheet_ID5: '1ZNTMr30x5Us6YA1XON3cSlJNmKE6ndN7WYqTEmlrtnQ',
       Sheet_ID6: '1yHLYm51c3RrCi9Wi1Az6CsF0Dz2eLk5gNI73mx8hh2g',
       Sheet_ID7: '18aFngl71MAJVdncZxF3zQdQXbY0hUZmJCkAySH4mWW0',
+      Sheet_ID8: '1ULSy7BnMxRFIis78vRdg40J5uzcFT2Oet5KOle4Jhr8',
       Sheet_TITLE2: 'Reg2',
       Sheet_TITLE3: 'Reg3',
       Sheet_TITLE4: 'Reg4',
@@ -88,6 +94,7 @@ export default {
       Sheet_TITLE1: 'Reg1',
       Sheet_TITLE6: 'Reg6',
       Sheet_TITLE7: 'Reg7',
+      Sheet_TITLE8: 'Reg8',
       Sheet_TITLE: 'Registan_Mock',
     };
   },
@@ -160,13 +167,19 @@ export default {
         }
       })
     this.Full_URL6 = 'https://docs.google.com/spreadsheets/d/' + this.Sheet_ID6 + '/gviz/tq?sheet=' + this.Sheet_TITLE6
-    fetch(this.Full_URL5)
+    fetch(this.Full_URL6)
       .then(res => res.text())
       .then(rep => {
         let data = JSON.parse(rep.substr(47).slice(0, -2))
       })
       this.Full_URL7 = 'https://docs.google.com/spreadsheets/d/' + this.Sheet_ID7 + '/gviz/tq?sheet=' + this.Sheet_TITLE7
-    fetch(this.Full_URL5)
+    fetch(this.Full_URL7)
+      .then(res => res.text())
+      .then(rep => {
+        let data = JSON.parse(rep.substr(47).slice(0, -2))
+      })
+      this.Full_URL8 = 'https://docs.google.com/spreadsheets/d/' + this.Sheet_ID8 + '/gviz/tq?sheet=' + this.Sheet_TITLE8
+    fetch(this.Full_URL8)
       .then(res => res.text())
       .then(rep => {
         let data = JSON.parse(rep.substr(47).slice(0, -2))
