@@ -8,46 +8,66 @@
         <img class="w-[110px]" src="../assets/logo.png" alt="">
       </div>
       <div class="content pt-[25px] flex flex-col items-center">
-        <RouterLink class="w-[100%] flex flex-row my-[30px] justify-center" to="/results"><div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
+        <RouterLink class="w-[100%] flex flex-row my-[30px] justify-center" to="/results">
+          <div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
             <img src="../assets/mock.png" class="mr-[15px]" alt="">
             <span class="text-[18px] font-semibold">Mock exam({{ this.date }})</span>
-        </div></RouterLink>
-        <RouterLink class="w-[100%] flex flex-row justify-center" to="/results1"><div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
+          </div>
+        </RouterLink>
+        <RouterLink class="w-[100%] flex flex-row justify-center" to="/results1">
+          <div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
             <img src="../assets/mock.png" class="mr-[15px]" alt="">
             <span class="text-[18px] font-semibold">Mock exam({{ this.date1 }})</span>
-        </div></RouterLink>
-        <RouterLink class="w-[100%] flex flex-row my-[30px] justify-center" to="/results2"><div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
+          </div>
+        </RouterLink>
+        <RouterLink class="w-[100%] flex flex-row my-[30px] justify-center" to="/results2">
+          <div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
             <img src="../assets/mock.png" class="mr-[15px]" alt="">
             <span class="text-[18px] font-semibold">Mock exam({{ this.date2 }})</span>
-        </div></RouterLink>
-        <RouterLink class="w-[100%] flex flex-row justify-center" to="/results3"><div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
+          </div>
+        </RouterLink>
+        <RouterLink class="w-[100%] flex flex-row justify-center" to="/results3">
+          <div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
             <img src="../assets/mock.png" class="mr-[15px]" alt="">
             <span class="text-[18px] font-semibold">Mock exam({{ this.date3 }})</span>
-        </div></RouterLink>
-        <RouterLink class="w-[100%] flex flex-row mt-[30px] justify-center" to="/result4"><div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
+          </div>
+        </RouterLink>
+        <RouterLink class="w-[100%] flex flex-row mt-[30px] justify-center" to="/result4">
+          <div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
             <img src="../assets/mock.png" class="mr-[15px]" alt="">
             <span class="text-[18px] font-semibold">Mock exam({{ this.date4 }})</span>
-        </div></RouterLink>
-        <RouterLink class="w-[100%] flex flex-row mt-[30px] justify-center" to="/result5"><div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
+          </div>
+        </RouterLink>
+        <RouterLink class="w-[100%] flex flex-row mt-[30px] justify-center" to="/result5">
+          <div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
             <img src="../assets/mock.png" class="mr-[15px]" alt="">
             <span class="text-[18px] font-semibold">Mock exam({{ this.date5 }})</span>
-        </div></RouterLink>
-        <RouterLink class="w-[100%] flex flex-row mt-[30px] justify-center" to="/result6"><div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
+          </div>
+        </RouterLink>
+        <RouterLink class="w-[100%] flex flex-row mt-[30px] justify-center" to="/result6">
+          <div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
             <img src="../assets/mock.png" class="mr-[15px]" alt="">
             <span class="text-[18px] font-semibold">Mock exam({{ this.date6 }})</span>
-        </div></RouterLink>
-        <RouterLink class="w-[100%] flex flex-row mt-[30px] justify-center" to="/result7"><div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
+          </div>
+        </RouterLink>
+        <RouterLink class="w-[100%] flex flex-row mt-[30px] justify-center" to="/result7">
+          <div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
             <img src="../assets/mock.png" class="mr-[15px]" alt="">
             <span class="text-[18px] font-semibold">Mock exam({{ this.date7 }})</span>
-        </div></RouterLink>
-        <RouterLink class="w-[100%] flex flex-row mt-[30px] justify-center" to="/result8"><div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
+          </div>
+        </RouterLink>
+        <RouterLink class="w-[100%] flex flex-row mt-[30px] justify-center" to="/result8">
+          <div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
             <img src="../assets/mock.png" class="mr-[15px]" alt="">
             <span class="text-[18px] font-semibold">Mock exam({{ this.date8 }})</span>
-        </div></RouterLink>
-        <RouterLink class="w-[100%] flex flex-row mt-[30px] mb-[130px] justify-center" to="/result9"><div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
+          </div>
+        </RouterLink>
+        <RouterLink class="w-[100%] flex flex-row mt-[30px] mb-[130px] justify-center" to="/result9">
+          <div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
             <img src="../assets/mock.png" class="mr-[15px]" alt="">
             <span class="text-[18px] font-semibold">Mock exam({{ this.date9 }})</span>
-        </div></RouterLink>
+          </div>
+        </RouterLink>
       </div>
     </div>
     <div class="animationWin" v-if="entered">
@@ -58,6 +78,7 @@
           {{ letter === ' ' ? '\u00A0' : letter }}
         </span>
       </div>
+      <span class="happy">Happy New Year : )</span>
       <div class="loading" v-if="loading">
         <span class="loader"></span>
       </div>
@@ -179,19 +200,19 @@ export default {
       .then(rep => {
         let data = JSON.parse(rep.substr(47).slice(0, -2))
       })
-      this.Full_URL7 = 'https://docs.google.com/spreadsheets/d/' + this.Sheet_ID7 + '/gviz/tq?sheet=' + this.Sheet_TITLE7
+    this.Full_URL7 = 'https://docs.google.com/spreadsheets/d/' + this.Sheet_ID7 + '/gviz/tq?sheet=' + this.Sheet_TITLE7
     fetch(this.Full_URL7)
       .then(res => res.text())
       .then(rep => {
         let data = JSON.parse(rep.substr(47).slice(0, -2))
       })
-      this.Full_URL8 = 'https://docs.google.com/spreadsheets/d/' + this.Sheet_ID8 + '/gviz/tq?sheet=' + this.Sheet_TITLE8
+    this.Full_URL8 = 'https://docs.google.com/spreadsheets/d/' + this.Sheet_ID8 + '/gviz/tq?sheet=' + this.Sheet_TITLE8
     fetch(this.Full_URL8)
       .then(res => res.text())
       .then(rep => {
         let data = JSON.parse(rep.substr(47).slice(0, -2))
       })
-      this.Full_URL9 = 'https://docs.google.com/spreadsheets/d/' + this.Sheet_ID9 + '/gviz/tq?sheet=' + this.Sheet_TITLE9
+    this.Full_URL9 = 'https://docs.google.com/spreadsheets/d/' + this.Sheet_ID9 + '/gviz/tq?sheet=' + this.Sheet_TITLE9
     fetch(this.Full_URL9)
       .then(res => res.text())
       .then(rep => {
@@ -202,7 +223,7 @@ export default {
       this.loading = true
     }, 4000);
     setTimeout(() => {
-    this.entered = false
+      this.entered = false
     }, 7000);
   },
 
@@ -220,7 +241,6 @@ export default {
 };
 </script>
 <style scoped>
-
 @keyframes appearing {
   0% {
     opacity: 0%
@@ -307,6 +327,16 @@ export default {
   border-right: 3px solid transparent;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
+}
+
+.happy {
+  color: rgb(35, 231, 5);
+  position: absolute;
+  font-size: 30px;
+  text-align: center;
+  top: 65%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
 }
 
 @keyframes rotation {

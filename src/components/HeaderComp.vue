@@ -1,7 +1,9 @@
 <template>
     <div class="header border-2 flex px-[10px] flex-row justify-start items-center">
-        <img class="w-[110px]" src="../assets/logo.png" alt="">
-        <span class="w-[100%]">{{ textHeader }}</span>
+        <div class="back"> <img src="../assets/Removal-92.png" alt="">
+        </div>
+        <img class="w-[110px] lo" src="../assets/logo.png" alt="">
+        <span class="w-[100%] te">{{ textHeader }}</span>
     </div>
 </template>
 
@@ -29,6 +31,15 @@ export default {
 </script>
 
 <style scoped>
+.back{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+
+}
 .header{
     width: 100%;
     font-weight: 600;
@@ -36,5 +47,8 @@ export default {
     font-size: 20px;
     height: 116px;
     background: #FF4508;
+}
+.te{
+z-index: 999 !important;
 }
 </style>
