@@ -50,6 +50,16 @@ const router = createRouter({
       component: () => import('../views/Result7.vue')
     },
     {
+      path: '/result8',
+      name: 'result8',
+      component: () => import('../views/Result8.vue')
+    },
+    {
+      path: '/result9',
+      name: 'result9',
+      component: () => import('../views/Result9.vue')
+    },
+    {
       path: '/candidate',
       name: 'candidate',
       component: () => import('../views/Candidate.vue')
@@ -88,6 +98,16 @@ const router = createRouter({
       path: '/candidate7',
       name: 'candidate7',
       component: () => import('../views/Candidate7.vue')
+    },
+    {
+      path: '/candidate8',
+      name: 'candidate8',
+      component: () => import('../views/Candidate8.vue')
+    },
+    {
+      path: '/candidate9',
+      name: 'candidate9',
+      component: () => import('../views/Candidate9.vue')
     },
   ]
 })

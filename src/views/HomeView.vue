@@ -40,9 +40,13 @@
             <img src="../assets/mock.png" class="mr-[15px]" alt="">
             <span class="text-[18px] font-semibold">Mock exam({{ this.date7 }})</span>
         </div></RouterLink>
-        <RouterLink class="w-[100%] flex flex-row mt-[30px] mb-[130px] justify-center" to="/result8"><div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
+        <RouterLink class="w-[100%] flex flex-row mt-[30px] justify-center" to="/result8"><div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
             <img src="../assets/mock.png" class="mr-[15px]" alt="">
             <span class="text-[18px] font-semibold">Mock exam({{ this.date8 }})</span>
+        </div></RouterLink>
+        <RouterLink class="w-[100%] flex flex-row mt-[30px] mb-[130px] justify-center" to="/result9"><div class="block cursor-pointer flex flex-row px-[15px] justify-start items-center">
+            <img src="../assets/mock.png" class="mr-[15px]" alt="">
+            <span class="text-[18px] font-semibold">Mock exam({{ this.date9 }})</span>
         </div></RouterLink>
       </div>
     </div>
@@ -77,6 +81,7 @@ export default {
       date5: '',
       date7: '22.09.2024',
       date8: '27.10.2024',
+      date9: '08.12.2024',
       date6: '25.08.2024',
       Sheet_ID: '1-ArEkK19KDY-GjhsO_V_NvQpHqos1V_DLdLOy4jgsYI',
       Sheet_ID1: '1X_bEBAXCTCHcDmLEbOd-rlbTi24rKvJqhaKQny2Todo',
@@ -87,6 +92,7 @@ export default {
       Sheet_ID6: '1yHLYm51c3RrCi9Wi1Az6CsF0Dz2eLk5gNI73mx8hh2g',
       Sheet_ID7: '18aFngl71MAJVdncZxF3zQdQXbY0hUZmJCkAySH4mWW0',
       Sheet_ID8: '1ULSy7BnMxRFIis78vRdg40J5uzcFT2Oet5KOle4Jhr8',
+      Sheet_ID9: '1bUmbuYChPs4Q_rvekffC5vhxiySpHHaIjG8Hfd9OIIU',
       Sheet_TITLE2: 'Reg2',
       Sheet_TITLE3: 'Reg3',
       Sheet_TITLE4: 'Reg4',
@@ -95,6 +101,7 @@ export default {
       Sheet_TITLE6: 'Reg6',
       Sheet_TITLE7: 'Reg7',
       Sheet_TITLE8: 'Reg8',
+      Sheet_TITLE9: 'Reg9',
       Sheet_TITLE: 'Registan_Mock',
     };
   },
@@ -184,6 +191,12 @@ export default {
       .then(rep => {
         let data = JSON.parse(rep.substr(47).slice(0, -2))
       })
+      this.Full_URL9 = 'https://docs.google.com/spreadsheets/d/' + this.Sheet_ID9 + '/gviz/tq?sheet=' + this.Sheet_TITLE9
+    fetch(this.Full_URL9)
+      .then(res => res.text())
+      .then(rep => {
+        let data = JSON.parse(rep.substr(47).slice(0, -2))
+      })
     this.animateLetters();
     setTimeout(() => {
       this.loading = true
@@ -234,11 +247,11 @@ export default {
 }
 
 .animationWin {
-  width: 100%;
+  width: 100vw;
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
+  height: 100vh;
   background-color: #FF4508;
   animation: appearing .3s ease-in-out;
 }
