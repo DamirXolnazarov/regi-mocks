@@ -1,6 +1,6 @@
 <template>
     <div class="header border-2 flex px-[10px] flex-row justify-start items-center">
-        <div class="back"> <img src="../assets/Removal-92.png" alt="">
+        <div class="back"> 
         </div>
         <img class="w-[110px] lo" src="../assets/logo.png" alt="">
         <span class="w-[100%] te">{{ textHeader }}</span>
@@ -37,9 +37,11 @@ export default {
     left: 0;
     z-index: 0;
     width: 100%;
-    height: 100%;
-
+    height: 100px;
+    background-position: center center;
+    background-image: url("../assets/Removal-92.png");
 }
+
 .header{
     width: 100%;
     font-weight: 600;
