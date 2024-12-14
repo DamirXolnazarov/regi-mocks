@@ -47,7 +47,7 @@ import Arrow from '../components/Arrow.vue'
                     </div>
                 </div>
             </div>
-            <div class="BandDescriptor py-[20px] px-[15px] flex flex-col items-center">
+            <div class="BandDescriptor py-[20px] mb-[50px] px-[15px] flex flex-col items-center">
                 <span class="flex flex-col text-center title text-[32px] py-[15px] font-black text-[#00FF19]">
                     {{ bandDescriptions[overall].title }}
                 </span>
