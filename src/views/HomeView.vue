@@ -78,7 +78,6 @@
           {{ letter === ' ' ? '\u00A0' : letter }}
         </span>
       </div>
-      <span class="happy">Happy New Year : )</span>
       <div class="loading" v-if="loading">
         <span class="loader"></span>
       </div>
